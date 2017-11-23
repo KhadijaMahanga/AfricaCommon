@@ -1,0 +1,31 @@
+---
+layout: default
+body_class: home
+permalink: /projects/
+---
+<div class="jumbotron jumbotron-fluid mb-0">
+  <div class="content">
+    <div class="row">
+      <div class="col col-lg-3 col-md-4">
+        <div style="padding-left: 40px;">
+           <form action="{{ site.base_url }}/projects">
+               <input type="text" id="search-input" name=query placeholder="search for a project" />
+               <button type="submit"><i class="fa fa-search"></i></button>
+           </form>
+        </div>
+      </div>
+      <div class="col col-lg-9">
+           <div id="search-results"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="{{ site.base_url }}/js/papaparse.min.js"></script>
+<script>
+
+var file =  {{ site.data.projects | jsonify }};
+//var filedata = Papa.parse({{ site.data.projects }});
+window.store = file;
+</script>
+<script src="{{ site.base_url }}/js/search.js"></script>
