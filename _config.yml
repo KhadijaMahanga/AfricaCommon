@@ -10,6 +10,7 @@ github_url: https://github.com/CodeForAfrica/AfricanCOMMONS
 
 google_analytics: UA-44795600-36
 
+base_url: /commons
 
 # Setup Configs
 permalink: pretty
