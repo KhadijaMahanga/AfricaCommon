@@ -24,10 +24,10 @@
         console.log(results[i]);
         var item = store[results[i].ref];
         appendHTMLString += '<li><a href="' + (item.Url != null? item.Url : '#') + '" target="_blank"><h3>' + item.Name + '</h3></a>';
-        appendHTMLString += '<p>' + (item.Description != null ? item.Description: ' ') + '</p></li></ul>';
+        appendHTMLString += '<p>' + (item.Description != null ? item.Description: ' ') + '</p></li>';
       }
 
-      searchResults.innerHTML = appendHTMLString;
+      searchResults.innerHTML = appendHTMLString + '</ul>';
     } else {
         searchResults.innerHTML = '<ul><li>No results found</li></ul>';
     }
