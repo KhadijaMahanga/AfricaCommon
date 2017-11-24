@@ -18,19 +18,18 @@
   function displaySearchResults(results, store) {
     var searchResults = document.getElementById('search-results');
     if (results.length) { // Are there any results?
-      var appendHTMLString = '';
+      var appendHTMLString ='<h2>Search Results</h2> <ul>';
 
       for (var i = 0; i < results.length; i++) {  //Loop through the results and append the string as HTML
         console.log(results[i]);
         var item = store[results[i].ref];
-        appendHTMLString += '<h2>Search Results</h2> <ul>'
         appendHTMLString += '<li><a href="' + (item.Url != null? item.Url : '#') + '" target="_blank"><h3>' + item.Name + '</h3></a>';
         appendHTMLString += '<p>' + (item.Description != null ? item.Description: ' ') + '</p></li></ul>';
       }
 
       searchResults.innerHTML = appendHTMLString;
     } else {
-        searchResults.innerHTML = '<li>No results found</li>';
+        searchResults.innerHTML = '<ul><li>No results found</li></ul>';
     }
   }
 
