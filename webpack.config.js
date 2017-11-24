@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: './webpack/js/main.js',
   output: {
-    filename: 'src/js/bundle.js'
+    filename: './js/bundle.js'
   },
   module: {
     rules: [
@@ -43,7 +43,7 @@ module.exports = {
            loader: 'file-loader',
            options: {
              name: '[name].[ext]',
-             outputPath: 'src/fonts/',    // where the fonts will go
+             outputPath: 'fonts/',    // where the fonts will go
            }
          }]
        },
