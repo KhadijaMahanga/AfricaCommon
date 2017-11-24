@@ -1,0 +1,131 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>AfricanCOMMONS</title>
+        <meta name="description" content="A platform to showcase re-useable tools built across Africa and the people & organizations building them.">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/icons/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicons/favicon-16x16.png">
+<link rel="manifest" href="/img/icons/favicons/manifest.json">
+<link rel="mask-icon" href="/img/icons/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/img/icons/favicons/favicon.ico">
+<meta name="msapplication-config" content="/img/icons/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+        <script type="text/javascript">
+            var host = "commons.africa";
+            if ((host == window.location.host) && (window.location.protocol != "https:"))
+                window.location.protocol = "https";
+        </script>
+
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Nunito:400,600,,900" rel="stylesheet">
+        <script src="/js/bundle.js"></script>
+    </head>
+    <body class="home">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://localhost:4000">
+      <img src="/img/logo-only-white.png" height="13" style="vertical-align: top; margin-top: 7px;" />
+      <span class="d-none">AfricanCOMMONS</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-1">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item ml-1">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        <li class="nav-item ml-1">
+          <a class="nav-link" href="https://medium.com/code-for-africa" target="_blank">Blog</a>
+        </li>
+
+        <li class="nav-item ml-3">
+          <a class="btn btn-outline-light btn-sm my-1 font-nunito" href="/add-project">
+            + Add Project</a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+
+<div class="jumbotron jumbotron-fluid mb-0">
+  <div class="content">
+    <div class="row">
+      <div class="col col-lg-3 col-md-4">
+        <div style="padding-left: 40px;">
+           <form action="/projects">
+               <input type="text" id="search-input" name=query placeholder="search for a project" />
+               <button type="submit"><i class="fa fa-search"></i></button>
+           </form>
+        </div>
+      </div>
+      <div class="col col-lg-9">
+           <div id="search-results"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="/js/papaparse.min.js"></script>
+<script>
+
+var file =  [{"Name":"Grano","Country":"Kenya","Description":null,"Url":"https://granoproject.org","Github":"https://github.com/CodeForAfrica/?query=grano"},{"Name":"afriLEAKS","Country":"Kenya","Description":"An encrypted platform that helps whistleblowers anonymously communicate with journalists / civic watchdogs.","Url":null,"Github":"https://github.com/CodeForAfrica/afriLEAKS-website"},{"Name":"sourceAFRICA","Country":"Kenya","Description":"The continent's largest repository of documentary evidence and other \"actionable documents\" from investigative journalists and civic watchdogs.","Url":null,"Github":"https://github.com/CodeForAfrica/sourceAFRICA"},{"Name":"HealthTools","Country":"Kenya","Description":"A suite of data-driven web and SMS-based tools that help citizens check everything from medicine prices and hospital services, to whether their doctor is a quack or not","Url":null,"Github":"https://github.com/CodeForAfrica/HealthTools.KE-theStarHealth"},{"Name":"Ushahidi Platform","Country":"Kenya","Description":"Crowdsource data collection platform","Url":null,"Github":"https://github.com/ushahidi/platform"},{"Name":"Ushahidi ","Country":"Kenya","Description":"Multiple projects all available on Github","Url":null,"Github":"https://github.com/ushahidi"},{"Name":"Saidika","Country":"Kenya","Description":"A simple way for ordinary citizens to get information on who to call in case of an emergency","Url":null,"Github":"https://github.com/iHub/saidika"},{"Name":"OpenDuka","Country":"Kenya","Description":"Open Duka is a project designed by the Open Institute that will provide a freely accessible database of information on Kenyan entities","Url":null,"Github":"https://github.com/OpenInstitute/OpenDuka"},{"Name":"GotToVote","Country":"Kenya","Description":"Enabling citizens to get to the ballot box informed and ready","Url":null,"Github":"https://github.com/CodeForAfrica/GotToVote"},{"Name":"Pesapal","Country":"Kenya","Description":"Library for processing payments using the Pesapal Gateway (not actively maintained)","Url":null,"Github":"https://github.com/okal/pesapal.py"},{"Name":"FrontlineSMS","Country":"Kenya","Description":"Open Source messaging software, built in Nairobi","Url":null,"Github":"https://github.com/frontlinesms/frontlinesms2"},{"Name":"Mzalendo","Country":"Kenya","Description":null,"Url":null,"Github":null},{"Name":"openAFRICA","Country":"Kenya","Description":"Africa's largest independent repository of open data","Url":null,"Github":"https://github.com/CodeForAfricaLabs/openAFRICA"},{"Name":"TaxClock","Country":"Kenya, South Africa, Tanzania","Description":"Tool that helps users calculate exactly how much time they spend working for the government.","Url":null,"Github":"https://github.com/CodeForAfrica/TaxClock"},{"Name":"Biscuit Index","Country":"Kenya","Description":"Shows how public budget data can be used to help citizens better understand how governments spend taxmoney","Url":null,"Github":"https://github.com/CodeForAfricaLabs/BiscuitIndex"},{"Name":"StarReports","Country":"Kenya","Description":"Android app used for citizen reporting of breaking news","Url":null,"Github":"https://github.com/CodeForAfrica/CitizenReporter-Android"},{"Name":"sourceAFRICA","Country":"Kenya","Description":"Africa's premier repository for actionable documents","Url":null,"Github":"https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase"},{"Name":"BudgIT","Country":"Nigeria","Description":"Simplifies budget and matters of public spending for citizens","Url":null,"Github":null},{"Name":"Where my Money Dey","Country":"Nigeria","Description":"Tracking revenues paid back by mining companies to local residents.","Url":null,"Github":"https://github.com/CodeForAfrica/WhereMyMoneyDey"},{"Name":"Follow the Money ","Country":"Nigeria","Description":"Advocate, visualize and track government spending and international aid","Url":null,"Github":null},{"Name":"Wananchi Portal","Country":"Tanzania","Description":"Channel for receiving complaints from citizens about the quality of public services","Url":null,"Github":null},{"Name":"Dar Ramani Huria","Country":"Tanzania","Description":"Mapping project training university students and local community members to create highly accurate maps of the most flood-prone areas of Dar es Salaam","Url":null,"Github":null},{"Name":"KodiYangu","Country":"Tanzania","Description":" tracks how taxes are used in TZ","Url":null,"Github":null},{"Name":"Taarifa.org","Country":"Tanzania","Description":"Waterpoint management system for Tanzania","Url":null,"Github":"https://github.com/taarifa/TaarifaWaterpoints"},{"Name":"Hurumap","Country":"Tanzania","Description":"Interactive Tanzania statistic map","Url":null,"Github":"https://github.com/CodeForAfrica/HURUmap"},{"Name":"Hospital Locator","Country":"Tanzania","Description":"Helps users find the closest medical facilities ","Url":null,"Github":"https://github.com/CodeForTanzania/medicine-prices-app"},{"Name":"Living Wages","Country":"Tanzania","Description":"Users cancheck whether the wages paid to domestic workers is livable in Tanzania.","Url":null,"Github":"https://github.com/CodeForTanzania/Domestic-Workers"},{"Name":"MedPrices ","Country":"Tanzania","Description":"Verifies the price of medication","Url":null,"Github":"https://github.com/CodeForTanzania/medicine-prices-app"},{"Name":"PesaCheck","Country":"Tanzania","Description":"fact-checking initiative to verify often confusing numbers quoted by public figures","Url":null,"Github":null},{"Name":"AfyaMap","Country":"Tanzania","Description":"Visualized Map of Tanzanian Health Initiatives","Url":null,"Github":"https://github.com/Jumagreens/AfyaMap"},{"Name":"2017 Daily News Tanzania","Country":"Tanzania","Description":"2017 article scrapes for Daily News (Tanzania)","Url":null,"Github":"https://github.com/newstools/2017-daily-news-tanzania"},{"Name":"SmartMtaa","Country":"Tanzania","Description":"Web App and Mobile Application that allows LGAs to store data of the citizens","Url":null,"Github":null},{"Name":"MaoniApp","Country":"Tanzania","Description":"Web App and SMS application that provides citizens with an opportunity to comment positively or negatively and offer solutions to the challenges facing public offices on service delivery.","Url":null,"Github":null},{"Name":"Know Your Budget","Country":"Uganda","Description":"Portal with government budget expenditure and plans for national and local levels","Url":null,"Github":null},{"Name":"Parliament Watch","Country":"Uganda","Description":"mon­i­tors and re­ports on the work of the Par­lia­ment of Uganda.","Url":null,"Github":null},{"Name":"Yogera","Country":"Uganda","Description":"platform linking government and citizens, including a “wall of shame” for incompetent government officials","Url":null,"Github":null},{"Name":"USER","Country":"Uganda","Description":"Citizen feedback portal for Kampala city projects","Url":null,"Github":null},{"Name":"Rootio Radio","Country":"Uganda","Description":"A grassroots radio project for community input and output","Url":null,"Github":"https://github.com/rootio/rootio_web"},{"Name":"Devtrac","Country":"Uganda","Description":"Drupal Install profile for Development Monitoring","Url":null,"Github":"http://drupal.org/projects/devtrac"},{"Name":"Drupal Contrib Modules","Country":"Uganda","Description":"Many different Drupal modules to built cool apps with (SMS, \nQuestionnaire, Graphing, Mapping etc.)","Url":null,"Github":"https://www.drupal.org/node/2070605"},{"Name":"Geobucket","Country":"Uganda","Description":"Easiest app in the world to create traces you can use to update OpenStreetMap","Url":null,"Github":"\nhttps://github.com/davidebukali/geobucket"},{"Name":"EasyMappr","Country":"Uganda","Description":"Simple app to map 1 type of feature at a time into OSM","Url":null,"Github":"https://github.com/davidebukali/EasyMappr"},{"Name":"Mbuni","Country":"Uganda","Description":"Mbuni is a fully-fledged Free/Open Source Multimedia Messaging Service (MMS) gateway.","Url":null,"Github":null}];
+//var filedata = Papa.parse({"Name"=>"Grano", "Country"=>"Kenya", "Description"=>nil, "Url"=>"https://granoproject.org", "Github"=>"https://github.com/CodeForAfrica/?query=grano"}{"Name"=>"afriLEAKS", "Country"=>"Kenya", "Description"=>"An encrypted platform that helps whistleblowers anonymously communicate with journalists / civic watchdogs.", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/afriLEAKS-website"}{"Name"=>"sourceAFRICA", "Country"=>"Kenya", "Description"=>"The continent's largest repository of documentary evidence and other \"actionable documents\" from investigative journalists and civic watchdogs.", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/sourceAFRICA"}{"Name"=>"HealthTools", "Country"=>"Kenya", "Description"=>"A suite of data-driven web and SMS-based tools that help citizens check everything from medicine prices and hospital services, to whether their doctor is a quack or not", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/HealthTools.KE-theStarHealth"}{"Name"=>"Ushahidi Platform", "Country"=>"Kenya", "Description"=>"Crowdsource data collection platform", "Url"=>nil, "Github"=>"https://github.com/ushahidi/platform"}{"Name"=>"Ushahidi ", "Country"=>"Kenya", "Description"=>"Multiple projects all available on Github", "Url"=>nil, "Github"=>"https://github.com/ushahidi"}{"Name"=>"Saidika", "Country"=>"Kenya", "Description"=>"A simple way for ordinary citizens to get information on who to call in case of an emergency", "Url"=>nil, "Github"=>"https://github.com/iHub/saidika"}{"Name"=>"OpenDuka", "Country"=>"Kenya", "Description"=>"Open Duka is a project designed by the Open Institute that will provide a freely accessible database of information on Kenyan entities", "Url"=>nil, "Github"=>"https://github.com/OpenInstitute/OpenDuka"}{"Name"=>"GotToVote", "Country"=>"Kenya", "Description"=>"Enabling citizens to get to the ballot box informed and ready", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/GotToVote"}{"Name"=>"Pesapal", "Country"=>"Kenya", "Description"=>"Library for processing payments using the Pesapal Gateway (not actively maintained)", "Url"=>nil, "Github"=>"https://github.com/okal/pesapal.py"}{"Name"=>"FrontlineSMS", "Country"=>"Kenya", "Description"=>"Open Source messaging software, built in Nairobi", "Url"=>nil, "Github"=>"https://github.com/frontlinesms/frontlinesms2"}{"Name"=>"Mzalendo", "Country"=>"Kenya", "Description"=>nil, "Url"=>nil, "Github"=>nil}{"Name"=>"openAFRICA", "Country"=>"Kenya", "Description"=>"Africa's largest independent repository of open data", "Url"=>nil, "Github"=>"https://github.com/CodeForAfricaLabs/openAFRICA"}{"Name"=>"TaxClock", "Country"=>"Kenya, South Africa, Tanzania", "Description"=>"Tool that helps users calculate exactly how much time they spend working for the government.", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/TaxClock"}{"Name"=>"Biscuit Index", "Country"=>"Kenya", "Description"=>"Shows how public budget data can be used to help citizens better understand how governments spend taxmoney", "Url"=>nil, "Github"=>"https://github.com/CodeForAfricaLabs/BiscuitIndex"}{"Name"=>"StarReports", "Country"=>"Kenya", "Description"=>"Android app used for citizen reporting of breaking news", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/CitizenReporter-Android"}{"Name"=>"sourceAFRICA", "Country"=>"Kenya", "Description"=>"Africa's premier repository for actionable documents", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/sourceAFRICA.app-Briefcase"}{"Name"=>"BudgIT", "Country"=>"Nigeria", "Description"=>"Simplifies budget and matters of public spending for citizens", "Url"=>nil, "Github"=>nil}{"Name"=>"Where my Money Dey", "Country"=>"Nigeria", "Description"=>"Tracking revenues paid back by mining companies to local residents.", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/WhereMyMoneyDey"}{"Name"=>"Follow the Money ", "Country"=>"Nigeria", "Description"=>"Advocate, visualize and track government spending and international aid", "Url"=>nil, "Github"=>nil}{"Name"=>"Wananchi Portal", "Country"=>"Tanzania", "Description"=>"Channel for receiving complaints from citizens about the quality of public services", "Url"=>nil, "Github"=>nil}{"Name"=>"Dar Ramani Huria", "Country"=>"Tanzania", "Description"=>"Mapping project training university students and local community members to create highly accurate maps of the most flood-prone areas of Dar es Salaam", "Url"=>nil, "Github"=>nil}{"Name"=>"KodiYangu", "Country"=>"Tanzania", "Description"=>" tracks how taxes are used in TZ", "Url"=>nil, "Github"=>nil}{"Name"=>"Taarifa.org", "Country"=>"Tanzania", "Description"=>"Waterpoint management system for Tanzania", "Url"=>nil, "Github"=>"https://github.com/taarifa/TaarifaWaterpoints"}{"Name"=>"Hurumap", "Country"=>"Tanzania", "Description"=>"Interactive Tanzania statistic map", "Url"=>nil, "Github"=>"https://github.com/CodeForAfrica/HURUmap"}{"Name"=>"Hospital Locator", "Country"=>"Tanzania", "Description"=>"Helps users find the closest medical facilities ", "Url"=>nil, "Github"=>"https://github.com/CodeForTanzania/medicine-prices-app"}{"Name"=>"Living Wages", "Country"=>"Tanzania", "Description"=>"Users cancheck whether the wages paid to domestic workers is livable in Tanzania.", "Url"=>nil, "Github"=>"https://github.com/CodeForTanzania/Domestic-Workers"}{"Name"=>"MedPrices ", "Country"=>"Tanzania", "Description"=>"Verifies the price of medication", "Url"=>nil, "Github"=>"https://github.com/CodeForTanzania/medicine-prices-app"}{"Name"=>"PesaCheck", "Country"=>"Tanzania", "Description"=>"fact-checking initiative to verify often confusing numbers quoted by public figures", "Url"=>nil, "Github"=>nil}{"Name"=>"AfyaMap", "Country"=>"Tanzania", "Description"=>"Visualized Map of Tanzanian Health Initiatives", "Url"=>nil, "Github"=>"https://github.com/Jumagreens/AfyaMap"}{"Name"=>"2017 Daily News Tanzania", "Country"=>"Tanzania", "Description"=>"2017 article scrapes for Daily News (Tanzania)", "Url"=>nil, "Github"=>"https://github.com/newstools/2017-daily-news-tanzania"}{"Name"=>"SmartMtaa", "Country"=>"Tanzania", "Description"=>"Web App and Mobile Application that allows LGAs to store data of the citizens", "Url"=>nil, "Github"=>nil}{"Name"=>"MaoniApp", "Country"=>"Tanzania", "Description"=>"Web App and SMS application that provides citizens with an opportunity to comment positively or negatively and offer solutions to the challenges facing public offices on service delivery.", "Url"=>nil, "Github"=>nil}{"Name"=>"Know Your Budget", "Country"=>"Uganda", "Description"=>"Portal with government budget expenditure and plans for national and local levels", "Url"=>nil, "Github"=>nil}{"Name"=>"Parliament Watch", "Country"=>"Uganda", "Description"=>"mon­i­tors and re­ports on the work of the Par­lia­ment of Uganda.", "Url"=>nil, "Github"=>nil}{"Name"=>"Yogera", "Country"=>"Uganda", "Description"=>"platform linking government and citizens, including a “wall of shame” for incompetent government officials", "Url"=>nil, "Github"=>nil}{"Name"=>"USER", "Country"=>"Uganda", "Description"=>"Citizen feedback portal for Kampala city projects", "Url"=>nil, "Github"=>nil}{"Name"=>"Rootio Radio", "Country"=>"Uganda", "Description"=>"A grassroots radio project for community input and output", "Url"=>nil, "Github"=>"https://github.com/rootio/rootio_web"}{"Name"=>"Devtrac", "Country"=>"Uganda", "Description"=>"Drupal Install profile for Development Monitoring", "Url"=>nil, "Github"=>"http://drupal.org/projects/devtrac"}{"Name"=>"Drupal Contrib Modules", "Country"=>"Uganda", "Description"=>"Many different Drupal modules to built cool apps with (SMS, \nQuestionnaire, Graphing, Mapping etc.)", "Url"=>nil, "Github"=>"https://www.drupal.org/node/2070605"}{"Name"=>"Geobucket", "Country"=>"Uganda", "Description"=>"Easiest app in the world to create traces you can use to update OpenStreetMap", "Url"=>nil, "Github"=>"\nhttps://github.com/davidebukali/geobucket"}{"Name"=>"EasyMappr", "Country"=>"Uganda", "Description"=>"Simple app to map 1 type of feature at a time into OSM", "Url"=>nil, "Github"=>"https://github.com/davidebukali/EasyMappr"}{"Name"=>"Mbuni", "Country"=>"Uganda", "Description"=>"Mbuni is a fully-fledged Free/Open Source Multimedia Messaging Service (MMS) gateway.", "Url"=>nil, "Github"=>nil});
+window.store = file;
+</script>
+<script src="/js/search.js"></script>
+
+
+<footer class="pt-4 pb-3 bg-light">
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-sm-8">
+        <p>Content on this site, made by Code for Africa, is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+        <p class="links">
+          <a href="/">Home</a> .
+          <a href="/about">About</a> .
+          <a href="/about#attributions">Attribution</a> .
+          <a href="https://medium.com/code-for-africa" target="_blank"><i class="fa fa-medium"></i> Blog</a> .
+          <a href="https://github.com/CodeForAfrica/AfricanCOMMONS" target="_blank" rel="noopener"><i class="fa fa-github"></i> Github</a> .
+          <a href="https://twitter.com/Code4Africa" target="_blank" rel="noopener"><i class="fa fa-twitter"></i> Twitter</a>
+        </p>
+      </div>
+      <div class="col-sm-4 text-center">
+        <p><a href="https://codeforafrica.org/" target="_blank" rel="noopener">
+          <img class="logo mb-3 mt-2" style="max-height: 60px;" src="/img/logos/cfafrica-gray.png"/>
+        </a></p>
+      </div>
+    </div>
+  </div>  
+</footer>
+
+
+        
+        
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-44795600-36','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
