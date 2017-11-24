@@ -1,10 +1,10 @@
 title: AfricanCOMMONS
 description: A platform to showcase re-useable tools built across Africa and the people & organizations building them.
 
-url: http://khadijamahanga.com/commons.africa
-enforce_ssl: khadijamahanga.com/commons.africa
+url: http://khadijamahanga.com/commons.afri
+enforce_ssl: khadijamahanga.com/commons.afri
 
-base_url: /commos.Afri
+base_url: /commons.Afri
 
 blog_url: https://medium.com/code-for-africa
 github_url: https://github.com/CodeForAfrica/AfricanCOMMONS
