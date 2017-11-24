@@ -8,6 +8,8 @@ enforce_ssl: khadijamahanga.com/commons.afri
 blog_url: https://medium.com/code-for-africa
 github_url: https://github.com/CodeForAfrica/AfricanCOMMONS
 
+base_url: /AfricaCommon
+
 google_analytics: UA-44795600-36
 
 # Setup Configs
