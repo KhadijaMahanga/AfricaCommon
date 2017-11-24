@@ -13,3 +13,5 @@ google_analytics: UA-44795600-36
 # Setup Configs
 permalink: pretty
 source: src
+
+theme: jekyll-theme-cayman
