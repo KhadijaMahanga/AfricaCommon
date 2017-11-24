@@ -25,7 +25,7 @@
         var item = store[results[i].ref];
         appendHTMLString += '<h2>Search Results</h2> <ul>'
         appendHTMLString += '<li><a href="' + item.Url + '"><h3>' + item.Name + '</h3></a>';
-        appendHTMLString += '<p>' + item.Description + '</p></li></ul>';
+        appendHTMLString += '<p>' + (item.Description != null ? item.Description: ' ') + '</p></li></ul>';
       }
 
       searchResults.innerHTML = appendHTMLString;
